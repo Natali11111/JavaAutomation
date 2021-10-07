@@ -1,4 +1,4 @@
-package pages;
+package pages.selenium;
 
 import lombok.Getter;
 import org.openqa.selenium.WebElement;
@@ -29,8 +29,6 @@ public class ItemFilteringForm extends BasePage {
     @FindBy(xpath = "//p[contains(@class,'filter-title')]")
     private List<WebElement> filterSectionList;
 
-    String showAllOrHideBtnXpath = "/following-sibling::div/a";
-
     @FindBy(xpath = "//input[contains(@class,'form-control-min')]")
     private WebElement minPriceField;
 
@@ -39,4 +37,6 @@ public class ItemFilteringForm extends BasePage {
 
     @FindBy(xpath = "//div[contains(@class, 'form-group')]//span[@class='filter-tooltip-inner']")
     public WebElement showButton;
+
+    String showAllXpath = "//p[contains(text(), '%s')]//..//a[contains(@class,'js-filter-more')]";
 }

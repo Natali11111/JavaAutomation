@@ -1,12 +1,13 @@
+package selenium;
+
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import page_steps.HomePageSteps;
-import page_steps.ItemDetailsPageSteps;
-import page_steps.ItemFilteringFormSteps;
 import test_data.data_provider.DataProviderClass;
 
 public class ValidateTest extends BaseTest{
+
     HomePageSteps homePageSteps;
 
     @BeforeTest
@@ -18,7 +19,7 @@ public class ValidateTest extends BaseTest{
     public void  verifySearchFieldWithInvalidData(String invalidData){
         homePageSteps.inputSearchField(invalidData);
         homePageSteps.clickOnSearchButton();
-        Assert.assertTrue(homePageSteps.getHomePageSteps().getSearchResultLabel().getText()
+        Assert.assertTrue(homePageSteps.getHomePage().getSearchResultLabel().getText()
                 .contains("Ничего не найдено"));
     }
 }

@@ -1,4 +1,4 @@
-package pages;
+package pages.selenium;
 
 
 import lombok.Getter;

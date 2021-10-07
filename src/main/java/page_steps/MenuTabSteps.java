@@ -1,12 +1,8 @@
 package page_steps;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
-import pages.BasePage;
-import pages.MenuTab;
+import pages.selenium.MenuTab;
 
-import java.util.List;
 import java.util.stream.Collectors;
 
 public class MenuTabSteps{
@@ -17,17 +13,6 @@ public class MenuTabSteps{
 
         return menuTabPage;
     }
-
-    //    public HomePage(WebDriver driver){
-//        this.driver=driver;
-//    }
-
-//    String locator = "//a";
-//    By tradeInLocator = By.xpath("");
-//
-//    public void click(){
-//        driver.findElement(By.xpath(locator)).click();
-//    }
 
     public void clickOnMenuTab(String menuName) {
         for (WebElement w : menuTabPage.getMenuTabList()) {

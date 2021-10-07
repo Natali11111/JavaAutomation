@@ -1,7 +1,8 @@
 package page_steps;
 
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
-import pages.ItemDetailsPage;
+import pages.selenium.ItemDetailsPage;
 
 import java.util.stream.Collectors;
 
@@ -14,8 +15,21 @@ public class ItemDetailsPageSteps {
         return itemDetailsPage;
     }
 
-    public void clickOnItem(int index) {
-       itemDetailsPage.getSearchItems().get(index).click();
+    public void clickOnItemList(String s) {
+        int attempts = 0;
+        while (attempts < 3) {
+            try {
+                for (WebElement w : itemDetailsPage.getSearchItems()) {
+                    if (w.getText().contains(s)) {
+                        w.click();
+                    }
+                }
+                break;
+            } catch (StaleElementReferenceException e) {
+                e.printStackTrace();
+            }
+            attempts++;
+        }
     }
 
     public String getAdditionalInfoListText() {
@@ -53,14 +67,12 @@ public class ItemDetailsPageSteps {
     }
 
     public void clickOnDeliveryAndPaymentMethods() {
-       itemDetailsPage.getDeliveryAndPaymentButton().click();
+        itemDetailsPage.getDeliveryAndPaymentButton().click();
     }
-
 
     public boolean isPicturesFormVisible() {
         return itemDetailsPage.getPicturesForm().isDisplayed();
     }
-
 
     public boolean isTabItemsListVisible() {
         boolean b = false;
@@ -91,8 +103,8 @@ public class ItemDetailsPageSteps {
         return Integer.parseInt(itemDetailsPage.getItemPriceLabel().getText());
     }
 
-    public boolean isCorrectPrice(int actualPrice, int maxPrice, int minPrice){
-        if(actualPrice >= minPrice && actualPrice <= maxPrice){
+    public boolean isCorrectPrice(int actualPrice, int maxPrice, int minPrice) {
+        if (actualPrice >= minPrice && actualPrice <= maxPrice) {
             return true;
         }
         return false;

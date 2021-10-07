@@ -12,12 +12,11 @@ public class Randomizer {
 
     public static int randomNumberForStarts() {
         Random random = new Random();
-        return random.nextInt(5) + 1;
+        return random.nextInt(4) + 1;
     }
 
     public static String randomWord(int countLetters) {
        return RandomStringUtils.randomAlphabetic(countLetters);
-
     }
 
     public static String randomWordsAndNumbers(int countSymbols) {
@@ -31,7 +30,5 @@ public class Randomizer {
         stringBuilder.append(wordsAndNumbers);
         stringBuilder.append(end);
         return stringBuilder.toString();
-
     }
-
 }

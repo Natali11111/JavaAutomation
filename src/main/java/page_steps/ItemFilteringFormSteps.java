@@ -1,10 +1,10 @@
 package page_steps;
 
 import driver.DriverManager;
-import helper.WindowHandler;
+import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
-import pages.ItemFilteringForm;
+import pages.selenium.ItemFilteringForm;
 
 public class ItemFilteringFormSteps {
     private ItemFilteringForm filteringForm = new ItemFilteringForm();
@@ -67,7 +67,7 @@ public class ItemFilteringFormSteps {
         return filteringForm.getFilterForm().isDisplayed();
     }
 
-    public void checkFilterCheckBoxList(String s) {
+    public void clickOnFilterCheckBoxList(String s) {
         int attempts = 0;
         while (attempts < 1) {
             try {
@@ -115,7 +115,8 @@ public class ItemFilteringFormSteps {
         filteringForm.getShowButton().click();
     }
 
-    public void scrollToFilter(int x, int y){
-        WindowHandler.scrollToWebElement(filteringForm.getFilterForm(),x,y, DriverManager.getInstance().getDriver());
+
+    public void clickOnShowAllList(String input) {
+        DriverManager.getInstance().getDriver().findElement(By.xpath(String.format(filteringForm.getShowAllXpath(), input))).click();
     }
 }
