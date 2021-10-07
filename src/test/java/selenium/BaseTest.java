@@ -1,3 +1,5 @@
+package selenium;
+
 import driver.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
@@ -28,7 +30,6 @@ public class BaseTest {
 
     @AfterMethod
     public void afterMethod() {
-        driver.close();
         driver.manage().deleteAllCookies();
     }
 

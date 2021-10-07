@@ -1,4 +1,4 @@
-package pages;
+package pages.selenium;
 
 import org.openqa.selenium.support.PageFactory;
 

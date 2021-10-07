@@ -1,13 +1,14 @@
 package page_steps;
 
 import org.openqa.selenium.WebElement;
-import pages.HomePage;
+import pages.selenium.HomePage;
 
 public class HomePageSteps {
 
     private HomePage homePage = new HomePage();
 
-    public HomePage getHomePageSteps() {
+    public HomePage getHomePage() {
+
         return homePage;
     }
 

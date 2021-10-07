@@ -1,11 +1,9 @@
-package pages;
+package pages.selenium;
 
 import lombok.Getter;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import page_steps.MenuTabSteps;
 
 import java.util.List;
 
@@ -33,5 +31,4 @@ public class MenuTab extends BasePage{
 
     @FindBy(xpath = "//ul[contains(@class, 'header__soc')]//i[contains(@class, 'icon')]")
     private List<WebElement> menuTabIconsList;
-
 }
